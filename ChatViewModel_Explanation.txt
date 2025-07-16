@@ -1,0 +1,43 @@
+ChatViewModel.kt Explanation
+===========================
+
+This file defines a `ChatViewModel` class for an Android chatbot app using Jetpack Compose and Firebase's generative AI. The ViewModel manages chat sessions, messages, and interactions with the AI model. Here is a breakdown of its main components and logic:
+
+1. **Properties:**
+   - `chats`: A mutable list holding all chat sessions (`ChatSession`).
+   - `currentId`: The ID of the currently active chat session.
+   - `model`: The generative AI model instance from Firebase, set to use Google's Gemini 2.0 Flash backend.
+   - `currentChat`: A computed property returning the currently active chat session, or null if none is selected.
+
+2. **sendMessage(question: String):**
+   - Sends a user message to the current chat session.
+   - Adds the user's message to the chat.
+   - Adds a temporary "typing..." indicator from the model.
+   - Prepares the chat history for the AI model, converting each message to the appropriate format (text, image, or file).
+   - Sends the user's question to the AI model and waits for a response.
+   - Replaces the "typing..." indicator with the actual AI response.
+   - Handles errors by removing the typing indicator and displaying an error message.
+
+3. **createNewChat():**
+   - Creates a new chat session with a unique ID and default title.
+   - Adds it to the list of chats and sets it as the current chat.
+
+4. **deleteChat(chatId: String):**
+   - Removes a chat session by its ID.
+   - If the deleted chat was the current one, switches to the first available chat or clears the current ID.
+
+5. **sendImage(uri: Uri):**
+   - Sends an image message to the current chat session.
+   - Adds the image as a user message.
+   - Adds a temporary "analyzing image..." indicator from the model.
+   - Calls `analyzeImage` to process the image and get a description from the AI model.
+   - Replaces the indicator with the AI's analysis or an error message if something goes wrong.
+
+6. **analyzeImage(uri: Uri):**
+   - Loads the image as a Bitmap, using different methods depending on the Android version.
+   - Prepares the image and a prompt ("Describe this image") for the AI model.
+   - Sends the image and prompt to the AI model and returns the description.
+   - Handles errors and returns an error message if image loading or analysis fails.
+
+**Summary:**
+The `ChatViewModel` manages chat sessions, sending/receiving messages (text and images), and interacts with a generative AI model to provide responses and image analysis. It handles UI state updates and error cases, making it the central logic component for the chatbot's conversation features. 

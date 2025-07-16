@@ -49,6 +49,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.chatbot.Firebase.NChatViewModel
 import com.example.chatbot.sign_in.AuthState
 import com.example.chatbot.sign_in.AuthViewModel
 
@@ -73,7 +74,7 @@ import java.util.UUID
 
 // Updated MainActivity using AuthViewModel
 class MainActivity : ComponentActivity() {
-    private val chatViewModel: ChatViewModel by viewModels()
+    private val chatViewModel: NChatViewModel by viewModels()
     private val authViewModel: AuthViewModel by viewModels {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -118,11 +119,11 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         is AuthState.Authenticated -> {
-                            ChatApp(
+
+                            com.example.chatbot.Firebase.ChatApp(
                                 viewModel= chatViewModel,
                                 onPickImage = ::launchImagePicker,
                                 authViewModel = authViewModel
-
                             )
                         }
                     }

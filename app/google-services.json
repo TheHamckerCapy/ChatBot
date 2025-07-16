@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1091132363712",
+    "project_id": "chat-bot-47952",
+    "storage_bucket": "chat-bot-47952.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091132363712:android:c90054037c0bb2ac8f2e25",
+        "android_client_info": {
+          "package_name": "com.example.chatbot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091132363712-2bclfg4thev81li43rg9lqm7anbu62ju.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatbot",
+            "certificate_hash": "fc7cc4b4ea88444eac7dfd4fac40caf98f6eb08d"
+          }
+        },
+        {
+          "client_id": "1091132363712-90v3a8tff45m74u0qschnugvfd3kfgj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlTgtP66qcSKDaHBEIua-C20l69Ilnf5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091132363712-90v3a8tff45m74u0qschnugvfd3kfgj8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
